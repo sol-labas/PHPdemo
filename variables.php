@@ -6,7 +6,13 @@
 </head>
 <body>
 
-<h1>Hello Student!</h1>
+<?php
+$name = "Angela";
+$number = 100.00;
+
+echo $name. " " .$number;
+
+?>
 
 </body>
 

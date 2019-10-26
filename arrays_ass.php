@@ -8,11 +8,10 @@
 
 <?php
 
-$numberList = array(456, 34, 56, '567', '<h1>Hello</h1>');
-print_r($numberList);
+$names = array("first_name"=>"Edwin", "last_name"=>"Diaz");
+echo $names["first_name"]." ".$names["last_name"];
 
 ?>
-
 
 </body>
 

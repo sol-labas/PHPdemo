@@ -6,7 +6,10 @@
 </head>
 <body>
 
-<h1>Hello Student!</h1>
+<?
+echo (5+5)*10;
+
+?>
 
 </body>
 
