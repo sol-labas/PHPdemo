@@ -16,12 +16,26 @@ function create(){
 
     $result = mysqli_query($conn, $query);
     if(!$result){
-        die('Query faild'.mysqli_error());
+        die('Query failed'.mysqli_error());
     }else{
         echo "Record created";
     }
 
 }
+
+function read(){
+    global $conn;
+    $query = "SELECT * FROM users";
+
+    $result = mysqli_query($conn, $query);
+    if (!$result) {
+        die('Query faild' . mysqli_error());
+    }
+    while ($row = mysqli_fetch_assoc($result)){
+            print_r($row);
+    }
+}
+
 
 function showAllData(){
     global $conn;
