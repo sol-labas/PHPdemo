@@ -2,6 +2,27 @@
 
 include_once "db.php";
 
+function create(){
+    global $conn;
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $conn = mysqli_connect('localhost', 'root', '', 'users');
+    if(!$conn){
+        die("Database failed connection");
+    }
+
+    $query = "INSERT INTO users (username, password) VALUES('$username', '$password')";
+
+    $result = mysqli_query($conn, $query);
+    if(!$result){
+        die('Query faild'.mysqli_error());
+    }else{
+        echo "Record created";
+    }
+
+}
+
 function showAllData(){
     global $conn;
     $query = "SELECT * FROM users";
@@ -26,7 +47,9 @@ function update(){
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Query failed" . mysqli_error($conn));
-    }
+    }else{
+    echo "Record updated";
+}
 
 }
 
@@ -40,6 +63,8 @@ function delete(){
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Query failed" . mysqli_error($conn));
-    }
+    }else{
+        echo "Record deleted";
+}
 
 }

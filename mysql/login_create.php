@@ -1,29 +1,9 @@
-<?php include "db.php";
-
-if(isset($_POST['submit'])){
-
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $conn = mysqli_connect('localhost', 'root', '', 'users');
-    if($conn){
-        echo "We are connected";
-    }else{
-        die("Database failed connection");
-    }
-
-    $query = "INSERT INTO users (username, password) VALUES('$username', '$password')";
-
-    $result = mysqli_query($conn, $query);
-        if(!$result){
-            die('Query faild'.mysqli_error());
-        }
-
+<?php include_once "db.php";
+include_once "functions.php";
+if(isset($_POST['submit'])) {
+    create();
 }
-
 ?>
-
-
 
 
 <!DOCTYPE html>
@@ -37,6 +17,7 @@ if(isset($_POST['submit'])){
 <body>
 <div class="container">
     <div class="col-xs-6">
+        <h1 class="text-center">Create User</h1>
         <form action="login_create.php" method="post">
             <div class="form-group">
                 <label for="username">Username</label>
