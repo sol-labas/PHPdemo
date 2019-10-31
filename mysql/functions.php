@@ -7,6 +7,9 @@ function create(){
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    $username = mysqli_real_escape_string($conn, $username);
+    $password = mysqli_real_escape_string($conn, $password);
+
     $conn = mysqli_connect('localhost', 'root', '', 'users');
     if(!$conn){
         die("Database failed connection");
@@ -29,7 +32,7 @@ function read(){
 
     $result = mysqli_query($conn, $query);
     if (!$result) {
-        die('Query faild' . mysqli_error());
+        die('Query failed' . mysqli_error());
     }
     while ($row = mysqli_fetch_assoc($result)){
             print_r($row);
