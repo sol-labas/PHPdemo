@@ -10,6 +10,12 @@ function create(){
     $username = mysqli_real_escape_string($conn, $username);
     $password = mysqli_real_escape_string($conn, $password);
 
+    $hashFormat = "$2y$10$";
+    $salt = "iusesomecrazystrings22";
+    $hash_and_salt = $hashFormat . $salt;
+
+    $password = crypt($password, $hash_and_salt);
+
     $conn = mysqli_connect('localhost', 'root', '', 'users');
     if(!$conn){
         die("Database failed connection");
