@@ -1,13 +1,23 @@
 <?php
 class Car{
-
+var $wheels = 4;
+var $hood = 1;
+var $engine = 1;
+var $doors = 5;
     function moveWheels(){
-        echo "Wheels move";
+        $this->moveWheels();
+    }
+
+    function changeDoors(){
+        $this->doors = 6;
     }
 }
 $bmw = new Car();
 $merces = new Car();
+$track = new Car();
 
-$bmw->moveWheels();
-$merces->moveWheels();
+echo $bmw->wheels . "<br>";
+$track->changeDoors();
+echo $track->doors;
+
 ?>
